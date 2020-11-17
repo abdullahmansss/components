@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 
 Widget defaultButton({
-  text,
-  function,
-  color,
-  isUpperCase,
-  double r = 5.0,
+  double wid = double.infinity,
+  double r = 10.0,
+  @required String text,
+  bool isUpper = true,
+  Color back = Colors.blue,
+  @required Function function,
 }) =>
     Container(
-      height: 40.0,
-      width: double.infinity,
+      width: wid,
       decoration: BoxDecoration(
+        color: back,
         borderRadius: BorderRadius.circular(
           r,
         ),
-        color: color,
       ),
       child: FlatButton(
         onPressed: function,
         child: Text(
-          isUpperCase ? text.toString().toUpperCase() : text.toString(),
+          isUpper ? text.toUpperCase() : text,
           style: TextStyle(
             color: Colors.white,
           ),
@@ -39,7 +39,6 @@ Widget defaultFormField({
           5.0,
         ),
         border: Border.all(
-          width: 1.0,
           color: Colors.grey,
         ),
       ),
@@ -48,12 +47,12 @@ Widget defaultFormField({
       ),
       child: TextFormField(
         controller: controller,
-        decoration: InputDecoration(
-          hintText: '$hint',
-          border: InputBorder.none,
-        ),
         keyboardType: type,
         obscureText: isPassword,
+        decoration: InputDecoration(
+          hintText: hint,
+          border: InputBorder.none,
+        ),
       ),
     );
 
@@ -62,4 +61,11 @@ void navigateTo(context, widget) => Navigator.push(
   MaterialPageRoute(
     builder: (context) => widget,
   ),
+);
+
+
+Widget buildSeparator() => Container(
+  height: 1.0,
+  width: double.infinity,
+  color: Colors.grey,
 );
