@@ -67,5 +67,5 @@ void navigateTo(context, widget) => Navigator.push(
 Widget buildSeparator() => Container(
   height: 1.0,
   width: double.infinity,
-  color: Colors.grey,
+  color: Colors.grey[300],
 );
