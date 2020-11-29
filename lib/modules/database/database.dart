@@ -307,7 +307,7 @@ class _WaitDatabaseState extends State<WaitDatabase> {
   }
 
   Future<List<Map>> searchUsers({Database database, String name}) async {
-    return await database.rawQuery('SELECT * FROM waiting WHERE name = "$name"');
+    return await database.rawQuery('SELECT * FROM waiting WHERE name Like "$name%"');
   }
 
   Future<void> updateUser(
