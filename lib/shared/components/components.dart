@@ -31,6 +31,7 @@ Widget defaultFormField({
   @required controller,
   hint = '',
   @required type,
+  Function onType,
   isPassword = false,
 }) =>
     Container(
@@ -49,6 +50,7 @@ Widget defaultFormField({
         controller: controller,
         keyboardType: type,
         obscureText: isPassword,
+        onChanged: onType,
         decoration: InputDecoration(
           hintText: hint,
           border: InputBorder.none,
